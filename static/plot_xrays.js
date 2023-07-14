@@ -2,11 +2,12 @@
 GOES 16 xrays w/lambda = [0.05,0.4] and [0.1,0.8] nm
 E = h*c*lambda [~10^2eV]
 E = {[248.137,31.01],[124.068,15.508]} 10^2eV
+short primary, long secondary
 ref scales https://www.d3indepth.com/scales/
 https://observablehq.com/@d3/line-chart/2?intent=fork
 
 */
-const xrays_url = "https://services.swpc.noaa.gov/json/goes/primary/xrays-3-day.json";
+const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
 // set the dimensions and margins of the graph
 const margen = {top: 10, right: 10, bottom: 30, left: 35},
    w_plot = 460 - margen.left - margen.right,
@@ -46,7 +47,7 @@ d3.json(xrays_url,
    });
 
    x_scale.domain(d3.extent(data,(d) => d.date));
-   y_scale.domain([2,d3.max(data,(d) => d.fluss)]);
+   y_scale.domain([0.5,4e4]);//d3.max(data,(d) => d.fluss)
    
    // Plot line
    /*svg_plot.append("path")
