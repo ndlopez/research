@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>.::Research interests::. </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="../static/estilo2.css">
+      <link rel="stylesheet" type="text/css" href="../static/burger.css">
+      <script src="../static/d3.v4.js"></script>
+      <!--script src="https://cdn.jsdelivr.net/npm/d3-time-format@4"></script-->
+      <!--script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script-->
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div><h2>Research</h2></div>
+      <input id="menu-toggle" type="checkbox"/><label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu">
+        <!--li><a href="fmlapaz.html">LaPaz.fm</a></li>
+        <li class="no_desktop">Other locations</li-->
+        <li><a href="/">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="https://ndzerglink.wordpress.com">Articles</a></li>
+        <li><a href="/weather">Weather</a></li>
+        <li><a href="/web_player">Music</a></li>
+        <li class="no-desktop"><a href="../tools/todo.html">Tools / ToDo</a></li>
+        <li class="no-desktop"><a href="../tools/calendar.html">Tools / Calendar</a></li>
+        <li class="no-desktop"><a href="../tools/passGen.html">Tools / Lazy Pass</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    
+    <header><h2>Solar Physics</h2></header>
+    <main>
+      <!-- Sun image by sdo-->
+      <section class="clearfix">
+        <h3>Latest SDO/AIA 171 image</h3>
+        <p>This channel is especially good at showing coronal loops - the arcs extending off 
+          of the Sun where plasma moves along magnetic field lines. The brightest spots seen 
+          here are locations where the magnetic field near the surface is 
+          exceptionally strong.</p>
+        <picture style="display: grid;place-items: center;" class="clearfix">
+          <source media="(min-width:1000px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_0171.jpg"/>
+          <source media="(min-width:650px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_512_0171.jpg"/>
+          <source media="(min-width:370px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0171.jpg"/>
+          <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0171.jpg" style="width: auto;"/>
+          <p>Sun image is courtesy of <a href="https://sdo.gsfc.nasa.gov/data/">NASA/SDO and the AIA, EVE, and HMI science teams.</a></p>
+        </picture>
+      </section>
+      <!-- Sunspot number plot by SILSO-->
+      <section class="clearfix">
+        <h3>Sunspot number</h3>
+        <div id="sunspots"></div>
+        <!--figure class="no-margin">
+          <source media="(min-width:650px)" srcset="https://sidc.be/silso/IMAGES/GRAPHICS/wolfjmms.png"/->
+          <--img src="https://sidc.be/silso/IMAGES/GRAPHICS/wolfjmms.png" style="width:100%">
+          <figcaption></figcaption>
+        </figure-->
+      </section>
+      <!-- X-ray flux -->
+      <section id="latest_event" class="clearfix">
+        <h3>Latest <a target="blank" href="https://www.swpc.noaa.gov/products/goes-x-ray-flux">GOES-16 X-ray</a> event</h3></section>
+      <section id="xrays-long"></section>
+      <section class="clearfix">
+        <h3><a href="https://services.swpc.noaa.gov/experimental/images/aurora_dashboard/tonights_static_viewline_forecast.png">Tonight's Aurora forecast</a></h3></section>
+        
+    </main>
+    <script src="../static/plot_sunspots.js"></script>
+    <script src="../static/get_flares.js"></script>
+    <script src="../static/plot_xrays.js"></script>
+    <footer><hr>
+      <div class="row">
+        <div class="column clearfix float-left align-left">
+          <p>
+            <a target="blank" href="https://www.openstreetmap.org/search?whereami=1&query=34.7022%2C135.1940#map=14/34.7021/135.1940">Hello from 34°41'24"N 135°11'44"E</a></p>
+        </div>
+        <div class="column clearfix float-left align-right">
+          <a class="mySNS" href="https://twitter.com/ndzerglink" target="_blank"><img src="../assets/twitter-logo.svg"/></a>
+          <a class="mySNS" href="https://github.com/ndlopez"><img src="../assets/github-logo.svg"/></a>
+          <a class="mySNS" target="blank" href="https://jp.linkedin.com/in/diego-lopez-58a033147"><img src="../assets/linkein-logo.svg"/></a>
+        </div>
+      </div>
+      <div class="clearfix">
+        <p style="text-align:center;"><span class="copy-left">&copy;</span><span> 2023-07-10 ndzerglink </span></p>
+      </div>
+    </footer>
+    <nav id="nav-menu" class="menu no-desktop">  
+      <ul>
+        <li><a class="link-off" href="/"><img src="../assets/home.svg"/> home</a></li>
+        <li><a class="link-on" href="research.html"><img src="../assets/telescope.svg"/> research</a></li>
+        <li><a class="link-off" href="projects.html"><img src="../assets/code.svg"/> projects</a></li>
+        <li><a class="link-off" href="/weather"><img src="../assets/sunny_cloudy.svg"/> weather</a></li>
+        <li><a class="link-off" href="../tools/todo.html"><img src="../assets/todo.svg"/> todo</a></li>
+      </ul></nav>
+  </body>
+</html>
