@@ -37,10 +37,11 @@ d3.json(xrays_url,
        d.date = dateParse(d.time_tag);
        aux = d.flux * 1e+8;
        d.value = parseFloat(aux.toFixed(3));
-       //console.log(d.date,d.value);
+       if(d.flux === Infinity){console.log(d.date,d.value);}
      }else{
       // energy 0.1-0.8nm
       d.tag = dateParse(d.time_tag);
+      if(d.flux === Infinity){console.log(d.tag,d.flux);}
       aux = d.flux * 1e+8;
       d.fluss = parseFloat(aux.toFixed(3));
     }
