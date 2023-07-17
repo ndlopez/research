@@ -35,15 +35,13 @@ d3.json(xrays_url,
      if(i%2==0){
       // energy 0.05-0.4 nm
        d.date = dateParse(d.time_tag);
-       aux = d.flux * 1e+8;
-       d.value = parseFloat(aux.toFixed(3));
-       if(d.flux === Infinity){console.log(d.date,d.value);}
+       // aux = d.flux * 1e+8;
+       d.value = d.flux * 1e+8;// parseFloat(aux.toFixed(3));
      }else{
       // energy 0.1-0.8nm
       d.tag = dateParse(d.time_tag);
-      if(d.flux === Infinity){console.log(d.tag,d.flux);}
-      aux = d.flux * 1e+8;
-      d.fluss = parseFloat(aux.toFixed(3));
+      // aux = d.flux * 1e+6;
+      d.fluss = d.flux * 1e+8;//parseFloat(aux.toFixed(3));
     }
    });
 
