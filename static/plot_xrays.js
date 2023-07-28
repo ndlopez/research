@@ -5,7 +5,7 @@ E = {[248.137,31.01],[124.068,15.508]} 10^2eV
 short primary, long secondary
 ref scales https://www.d3indepth.com/scales/
 https://observablehq.com/@d3/line-chart/2?intent=fork
-
+Solar flare intensities cover a large range and are classified in terms of peak emission in the 0.1 – 0.8 nm spectral band (soft x-rays) of the NOAA/GOES XRS. The X-ray flux levels start with the “A” level (nominally starting at 10-8 W/m2). The next level, ten times higher, is the “B” level (≥ 10-7 W/m2); followed by “C” flares (10-6 W/m2), “M” flares (10-5 W/m2), and finally “X” flares (10-4 W/m2).
 */
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
 // set the dimensions and margins of the graph
