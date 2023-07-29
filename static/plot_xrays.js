@@ -9,7 +9,7 @@ ref scales https://www.d3indepth.com/scales/
 https://observablehq.com/@d3/line-chart/2?intent=fork*/
 
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
-const xclass = [{"A":1e0},{"B":1e1},{"C":1e2},{"M":1e3},{"X":1e4}]; 
+const xclass = [{"class":"A","value":1e0},{"class":"B","value":1e1},{"class":"C","value":1e2},{"class":"M","value":1e3},{"class":"X","value":1e4}]; 
 const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
 xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA</a>';
@@ -51,10 +51,9 @@ const svgRight = d3.select("#rightAxis")
     .append("svg").attr("width",35).attr("height",ySize)
     .append("g")
     .attr("transform","translate(" + 30 + "," + margin.top + ")");
-
-const yClass = d3.scaleLog().domain([0.1,3e4]).range([h_plot,0]);
+const class_data = ['','A','B','C','M','X',''];//xclass,(d) => d.class
+const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,(h_plot-20),(h_plot-120),(h_plot-190),(h_plot-270),(h_plot-350),0]);//h_plot,0
 svgRight.append("g").call(d3.axisLeft(yClass));
-svgRight.append("g").append("text").text("%").attr("x",-20).attr("y",-10);
 const svg_plot = d3.select("#xrays_main")
     .append("svg")
     .attr("width", w_plot + margen.left + margen.right)
