@@ -10,22 +10,22 @@ https://observablehq.com/@d3/line-chart/2?intent=fork*/
 
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
 const container = document.getElementById("xrays-long");
-const spotTitle = document.createElement("p");
-spotTitle.innerHTML = 'International sunspot number: daily observations since 2008-01-01 ~ 2023-06-30 (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
-containDiv.appendChild(spotTitle);
-const centerDiv = document.createElement("div");
-centerDiv.setAttribute("class","one-column float-left");
-const outerDiv = document.createElement("div");
-outerDiv.setAttribute("class","outer");
-const innerDiv = document.createElement("div");
-innerDiv.setAttribute("class","inner");
-const mainDiv = document.createElement("div");
-mainDiv.setAttribute("id","xrays_main");
+const xraysTitle = document.createElement("p");
+xraysTitle.innerHTML = 'Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
+container.appendChild(xraysTitle);
+const middleDiv = document.createElement("div");
+middleDiv.setAttribute("class","one-column float-left");
+const outer_div = document.createElement("div");
+outer_div.setAttribute("class","outer");
+const inner_div = document.createElement("div");
+inner_div.setAttribute("class","inner");
+const main_div = document.createElement("div");
+main_div.setAttribute("id","xrays_main");
 
-innerDiv.appendChild(mainDiv);
-outerDiv.appendChild(innerDiv);
-centerDiv.appendChild(outerDiv);
-container.appendChild(centerDiv);
+inner_div.appendChild(main_div);
+outer_div.appendChild(inner_div);
+middleDiv.appendChild(outer_div);
+container.appendChild(middleDiv);
 
 // set the dimensions and margins of the graph
 const margen = {top: 10, right: 10, bottom: 30, left: 35},
@@ -33,7 +33,7 @@ const margen = {top: 10, right: 10, bottom: 30, left: 35},
    h_plot = 450 - margen.top - margen.bottom;
 
 // append the svg object to the body of the page
-const svg_plot = d3.select("#xrays-main")
+const svg_plot = d3.select("#xrays_main")
          .append("svg")
          .attr("width", w_plot + margen.left + margen.right)
          .attr("height", h_plot + margen.top + margen.bottom)
