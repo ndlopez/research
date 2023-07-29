@@ -9,6 +9,7 @@ ref scales https://www.d3indepth.com/scales/
 https://observablehq.com/@d3/line-chart/2?intent=fork*/
 
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
+const xclass = [{"A":1e0},{"B":1e1},{"C":1e2},{"M":1e3},{"X":1e4}]; 
 const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
 xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA</a>';
@@ -42,16 +43,24 @@ const margen = {top: 10, right: 10, bottom: 30, left: 35},
    h_plot = ySize - margen.top - margen.bottom;
 
 const svgLeft = d3.select("#leftAxis")
-.append("svg").attr("width",36).attr("height",ySize)
-.append("g")
-.attr("transform","translate(" + 35 + "," + margin.top + ")");
+    .append("svg").attr("width",49).attr("height",ySize)
+    .append("g")
+    .attr("transform","translate(" + 48 + "," + margin.top + ")");
 // append the svg object to the body of the page
+const svgRight = d3.select("#rightAxis")
+    .append("svg").attr("width",35).attr("height",ySize)
+    .append("g")
+    .attr("transform","translate(" + 30 + "," + margin.top + ")");
+
+const yClass = d3.scaleLog().domain([0.1,3e4]).range([h_plot,0]);
+svgRight.append("g").call(d3.axisLeft(yClass));
+svgRight.append("g").append("text").text("%").attr("x",-20).attr("y",-10);
 const svg_plot = d3.select("#xrays_main")
-         .append("svg")
-         .attr("width", w_plot + margen.left + margen.right)
-         .attr("height", h_plot + margen.top + margen.bottom)
-         .append("g")
-         .attr("transform","translate(" + margen.left + "," + margen.top +")");
+    .append("svg")
+    .attr("width", w_plot + margen.left + margen.right)
+    .attr("height", h_plot + margen.top + margen.bottom)
+    .append("g")
+    .attr("transform","translate(" + margen.left + "," + margen.top +")");
 
 const dateParse = d3.timeParse("%Y-%m-%dT%H:%M:%SZ");
 const x_scale = d3.scaleTime().range([ 0, w_plot]);
