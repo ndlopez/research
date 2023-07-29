@@ -3,18 +3,37 @@ GOES 16 xrays w/lambda = [0.05,0.4] and [0.1,0.8] nm
 E = h*c*lambda [~10^2eV]
 E = {[248.137,31.01],[124.068,15.508]} 10^2eV
 short primary, long secondary
+
+Solar flare intensities cover a large range and are classified in terms of peak emission in the 0.1 - 0.8 nm spectral band (soft x-rays) of the NOAA/GOES XRS. The X-ray flux levels start with the “A” level (nominally starting at 10-8 W/m2). The next level, ten times higher, is the “B” level (>= 10-7 W/m2); followed by “C” flares (10-6 W/m2), “M” flares (10-5 W/m2), and finally “X” flares (10-4 W/m2).
 ref scales https://www.d3indepth.com/scales/
-https://observablehq.com/@d3/line-chart/2?intent=fork
-Solar flare intensities cover a large range and are classified in terms of peak emission in the 0.1 – 0.8 nm spectral band (soft x-rays) of the NOAA/GOES XRS. The X-ray flux levels start with the “A” level (nominally starting at 10-8 W/m2). The next level, ten times higher, is the “B” level (≥ 10-7 W/m2); followed by “C” flares (10-6 W/m2), “M” flares (10-5 W/m2), and finally “X” flares (10-4 W/m2).
-*/
+https://observablehq.com/@d3/line-chart/2?intent=fork*/
+
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
+const container = document.getElementById("xrays-long");
+const spotTitle = document.createElement("p");
+spotTitle.innerHTML = 'International sunspot number: daily observations since 2008-01-01 ~ 2023-06-30 (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
+containDiv.appendChild(spotTitle);
+const centerDiv = document.createElement("div");
+centerDiv.setAttribute("class","one-column float-left");
+const outerDiv = document.createElement("div");
+outerDiv.setAttribute("class","outer");
+const innerDiv = document.createElement("div");
+innerDiv.setAttribute("class","inner");
+const mainDiv = document.createElement("div");
+mainDiv.setAttribute("id","xrays_main");
+
+innerDiv.appendChild(mainDiv);
+outerDiv.appendChild(innerDiv);
+centerDiv.appendChild(outerDiv);
+container.appendChild(centerDiv);
+
 // set the dimensions and margins of the graph
 const margen = {top: 10, right: 10, bottom: 30, left: 35},
    w_plot = 460 - margen.left - margen.right,
    h_plot = 450 - margen.top - margen.bottom;
 
 // append the svg object to the body of the page
-const svg_plot = d3.select("#xrays-long")
+const svg_plot = d3.select("#xrays-main")
          .append("svg")
          .attr("width", w_plot + margen.left + margen.right)
          .attr("height", h_plot + margen.top + margen.bottom)
