@@ -11,7 +11,7 @@ https://observablehq.com/@d3/line-chart/2?intent=fork*/
 const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
 const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
-xraysTitle.innerHTML = 'Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
+xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA</a>';
 container.appendChild(xraysTitle);
 const middleDiv = document.createElement("div");
 middleDiv.setAttribute("class","one-column float-left");
@@ -48,7 +48,8 @@ let aux = 0.0;
 d3.json(xrays_url,
  function(err,data){
    if(err)throw err;
-   // Add X axis --> it is a date format xValue = d3.utcParse("%Y-%m-%d %H:%M:%S")(d.time_tag);
+   // Add X axis --> it is a date format 
+   // xValue = d3.utcParse("%Y-%m-%d %H:%M:%S")(d.time_tag);
    // d3.time.format("%Y-%m-%d %H:%M:%S").parse;
    data.forEach((d,i) => {
      if(i%2==0){
@@ -105,6 +106,6 @@ d3.json(xrays_url,
      .call(d3.axisBottom(x_scale));
    
    svg_plot.append("g")
-     .attr("class","spot_num")
+     .attr("class","xray_flux")
      .call(d3.axisLeft(y_scale));
 });
