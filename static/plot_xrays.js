@@ -13,8 +13,14 @@ const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
 xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA</a>';
 container.appendChild(xraysTitle);
+const leftDiv = document.createElement("div");
+leftDiv.setAttribute("id","leftAxis");
+leftDiv.setAttribute("class","column-left float-left");
+const rightDiv = document.createElement("div");
+rightDiv.setAttribute("id","rightAxis");
+rightDiv.setAttribute("class","column-third float-left");
 const middleDiv = document.createElement("div");
-middleDiv.setAttribute("class","one-column float-left");
+middleDiv.setAttribute("class","column-right float-left");
 const outer_div = document.createElement("div");
 outer_div.setAttribute("class","outer");
 const inner_div = document.createElement("div");
@@ -25,13 +31,20 @@ main_div.setAttribute("id","xrays_main");
 inner_div.appendChild(main_div);
 outer_div.appendChild(inner_div);
 middleDiv.appendChild(outer_div);
+container.appendChild(leftDiv);
 container.appendChild(middleDiv);
+container.appendChild(rightDiv);
 
 // set the dimensions and margins of the graph
+const xSize= 460,ySize = 450;
 const margen = {top: 10, right: 10, bottom: 30, left: 35},
-   w_plot = 460 - margen.left - margen.right,
-   h_plot = 450 - margen.top - margen.bottom;
+   w_plot = xSize - margen.left - margen.right,
+   h_plot = ySize - margen.top - margen.bottom;
 
+const svgLeft = d3.select("#leftAxis")
+.append("svg").attr("width",36).attr("height",ySize)
+.append("g")
+.attr("transform","translate(" + 35 + "," + margin.top + ")");
 // append the svg object to the body of the page
 const svg_plot = d3.select("#xrays_main")
          .append("svg")
@@ -105,7 +118,7 @@ d3.json(xrays_url,
      .attr("transform", "translate(0," + h_plot + ")")
      .call(d3.axisBottom(x_scale));
    
-   svg_plot.append("g")
+   svgLeft.append("g")
      .attr("class","xray_flux")
      .call(d3.axisLeft(y_scale));
 });
