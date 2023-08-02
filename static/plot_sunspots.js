@@ -1,5 +1,5 @@
 /*SILSO data: daily Sunspot number*/
-const spots_url = "https://raw.githubusercontent.com/ndlopez/research/main/data/sunspot_number.csv";
+const spots_url = "https://raw.githubusercontent.com/ndlopez/scrapped/main/sunspot_number.csv";
 
 const containDiv = document.getElementById("sunspots");
 const spotTitle = document.createElement("p");
