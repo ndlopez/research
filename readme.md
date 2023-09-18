@@ -15,4 +15,4 @@ This channel is especially good at showing coronal loops - the arcs extending of
 ---
 Disclaimer:
 
-Soft-X-Ray data are from and available at NOAA.gov, Sun image is from SDO and sunspot data are formatted from SILSO/SIDC.
+Soft-X-Ray data are from and available at NOAA.gov, Sun image is from SDO and sunspot data are pre-formatted by the owner of the repo and are from WDC-SILSO, Royal Observatory of Belgium, Brussels.
