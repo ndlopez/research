@@ -63,7 +63,8 @@ const svg_plot = d3.select("#xrays_main")
 
 const dateParse = d3.timeParse("%Y-%m-%dT%H:%M:%SZ");
 const x_scale = d3.scaleTime().range([ 0, w_plot]);
-const y_scale = d3.scaleLog().range([ h_plot, 0]); // d3.scaleLinear().range([h_plot, 0]);
+// const y_scale = d3.scaleLinear().range([h_plot, 0]);// 
+const y_scale = d3.scaleLog().range([ h_plot, 0]); // 
 
 let aux = 0.0;
 d3.json(xrays_url,
@@ -87,7 +88,7 @@ d3.json(xrays_url,
    });
 
    x_scale.domain(d3.extent(data,(d) => d.date));
-   y_scale.domain([0.5,4e4]);//d3.max(data,(d) => d.fluss)
+   y_scale.domain([0.5,4e4]);//[0.5,4e4]d3.max(data,(d) => d.value)
    
    // Plot line
    /*svg_plot.append("path")
@@ -105,8 +106,8 @@ d3.json(xrays_url,
      .selectAll("squares")
      .data(data).enter()
      .append("rect")
-     .attr("x",(d,i)=>{if(i%2==0){return x_scale(d.date);}})
-     .attr("y",(d,i)=>{if(i%2==0){return y_scale(d.value);}})
+     .attr("x",(d,i)=>{if(i%2==0){return x_scale(d.date);}else{return 0;}})
+     .attr("y",(d,i)=>{if(i%2==0){return y_scale(d.value);}else{return h_plot;}})
      .attr("width","2")
      .attr("height","2")
      .style("fill","#bed2e0");
@@ -115,8 +116,8 @@ d3.json(xrays_url,
      .selectAll("squares")
      .data(data).enter()
      .append("rect")
-     .attr("x",(d,i)=>{if(i%2!=0){return x_scale(d.tag);}})
-     .attr("y",(d,i)=>{if(i%2!=0){return y_scale(d.fluss);}})
+     .attr("x",(d,i)=>{if(i%2!=0){return x_scale(d.tag);}else{return 0;}})
+     .attr("y",(d,i)=>{if(i%2!=0){return y_scale(d.fluss);}else{return h_plot;}})
      .attr("width","2")
      .attr("height","2")
      .style("fill","#cc274c");
