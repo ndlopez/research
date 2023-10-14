@@ -1,3 +1,26 @@
+:root{
+    --light-sky:#bed2e0;
+}
+body{
+    background-color: #000;
+}
+.container{
+    padding: 0px;
+}
+.menu{
+    background-color: #000;
+}
+.menu > a {
+    color: var(--light-sky);
+}
+#app > *,nav{
+    background-color: #212529;
+    color: var(--light-sky)
+}
+.mt-5{margin-top: 0px !important;}
+ul{
+    padding-left: 0px;
+}
 [v-clock] {
     display: none;
 }
