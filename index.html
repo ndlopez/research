@@ -32,20 +32,30 @@
       </ul>
     </nav>
     
-    <header><h2>Solar Physics</h2><p>All times are in UTC</p></header>
+    <header>
+      <h2>Solar Physics</h2>
+      <blockquote cite="">
+        <p>"Science should be universal, without a doubt. However, one should not believe unconditionally in this."</p>
+        <footer>&#8722;C&#233;sar Lattes, <cite>Physicist</cite></footer>
+      </blockquote>
+    </header>
+
     <main>
       <!-- Sun image by sdo-->
       <section class="clearfix">
-        <h2>Latest SDO/AIA 131 image</h2>
-        <p>This channel is especially good at showing coronal loops - the arcs extending off 
-          of the Sun where plasma moves along magnetic field lines. The brightest spots seen 
-          here are locations where the magnetic field near the surface is 
-          exceptionally strong.</p>
+        <h2>Latest SDO/AIA 094 image</h2>
+        <p>This channel (as well as AIA 131) is designed to study solar flares. It measures extremely hot temperatures around 6 million Kelvin. It can take images every 2 seconds (instead of 10) in a reduced field of view in order to look at flares in more detail.
+          <br>
+          Where: Flaring regions of the corona<br>
+          Wavelength: 94x10^-10m EUV/soft X-rays<br>
+          Primary ions seen: 17 times ionized iron (Fe XVIII)<br>
+          Characteristic temperatures: 6 million K
+        </p>
         <picture style="display: grid;place-items: center;" class="clearfix">
-          <source media="(min-width:1000px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_0131.jpg"/>
-          <source media="(min-width:650px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_512_0131.jpg"/>
-          <source media="(min-width:370px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0131.jpg"/>
-          <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0131.jpg" style="width: auto;"/>
+          <source media="(min-width:1000px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_0094.jpg"/>
+          <source media="(min-width:650px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_512_0094.jpg"/>
+          <source media="(min-width:370px)" srcset="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0094.jpg"/>
+          <img src="https://sdo.gsfc.nasa.gov/assets/img/latest/latest_256_0094.jpg" style="width: auto;"/>
           <p>Sun image is courtesy of <a href="https://sdo.gsfc.nasa.gov/data/">NASA/SDO and the AIA, EVE, and HMI science teams.</a></p>
         </picture>
       </section>
@@ -60,10 +70,9 @@
         </figure-->
       </section>
       <!-- X-ray flux -->
-      <section id="xrays-long"><h2> X-ray flux (last 3 days)</h2></section>
+      <section id="xrays-long" class="clearfix"><h2> X-ray flux (last 3 days)</h2></section>
       
       <section id="latest_event" class="clearfix">
-        <br/>
         <h3><a target="blank" href="https://www.swpc.noaa.gov/products/goes-x-ray-flux">Latest GOES-16 X-ray</a> event</h3></section>
       
       <section class="clearfix">
@@ -83,7 +92,7 @@
       <div class="row">
         <div class="column clearfix float-left align-left">
           <p>
-            <a target="blank" href="https://www.openstreetmap.org/search?whereami=1&query=34.7022%2C135.1940#map=14/34.7021/135.1940">Hello from 34°41'24"N 135°11'44"E</a></p>
+            <a target="blank" href="https://www.openstreetmap.org/search?whereami=1&query=34.7022%2C135.1940#map=14/34.7021/135.1940">Hello from 34°41'N 135°11'E</a></p>
         </div>
         <div class="column clearfix float-left align-right">
           <a class="mySNS" href="https://twitter.com/ndzerglink" target="_blank"><img src="/assets/twitter-logo.svg"/></a>
@@ -92,7 +101,9 @@
         </div>
       </div>
       <div class="clearfix">
-        <p style="text-align:center;"><span class="copy-left">&copy;</span><span> 2023-10-12 ndzerglink </span></p>
+        <p style="text-align:center;">
+          <span class="copy-left">&copy;</span>
+          <span> 2023-10-14 ndzerglink </span></p>
       </div>
     </footer>
     <nav id="nav-menu" class="menu no-desktop">  
