@@ -45,15 +45,15 @@ const margen = {top: 10, right: 10, bottom: 30, left: 35},
 const svgLeft = d3.select("#leftAxis")
     .append("svg").attr("width",49).attr("height",ySize)
     .append("g")
-    .attr("transform","translate(" + 48 + "," + margin.top + ")");
+    .attr("transform","translate(" + 48 + "," + margen.top + ")");
 // append the svg object to the body of the page
 const svgRight = d3.select("#rightAxis")
     .append("svg").attr("width",35).attr("height",ySize)
     .append("g")
-    .attr("transform","translate(" + 30 + "," + margin.top + ")");
+    .attr("transform","translate(" + 30 + "," + margen.top + ")");
 const class_data = ['','A','B','C','M','X',''];//xclass,(d) => d.class
 // if yMin=0.5 const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,(h_plot-20),(h_plot-120),(h_plot-190),(h_plot-270),(h_plot-350),0]);//h_plot,0
-
+const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,337.312,264.125,190.94,117.75,44.563,0]);//h_plot,0
 
 svgRight.append("g").call(d3.axisLeft(yClass));
 const svg_plot = d3.select("#xrays_main")
