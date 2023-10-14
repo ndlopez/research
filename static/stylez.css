@@ -2,15 +2,15 @@
     --light-sky:#bed2e0;
 }
 body{
-    background-color: #000;
+    background-color: #2c3034;
 }
 .container{
     padding: 0px;
 }
 .menu{
-    background-color: #000;
+    background-color: #2c3034;
 }
-.menu > a {
+li a{
     color: var(--light-sky);
 }
 #app > *,nav{
