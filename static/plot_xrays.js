@@ -74,16 +74,18 @@ d3.json(xrays_url,
    // xValue = d3.utcParse("%Y-%m-%d %H:%M:%S")(d.time_tag);
    // d3.time.format("%Y-%m-%d %H:%M:%S").parse;
    data.forEach((d,i) => {
-     if(i%2==0){
-      // energy 0.05-0.4 nm
-       d.date = dateParse(d.time_tag);
-       // aux = d.flux * 1e+8;
-       d.value = d.flux * 1e+8;// parseFloat(aux.toFixed(3));
-     }else{
-      // energy 0.1-0.8nm
-      d.tag = dateParse(d.time_tag);
-      // aux = d.flux * 1e+6;
-      d.fluss = d.flux * 1e+8;//parseFloat(aux.toFixed(3));
+    if (parseFloat(d.flux) > 0){
+      if(i%2==0){
+        // energy 0.05-0.4 nm
+        d.date = dateParse(d.time_tag);
+        // aux = d.flux * 1e+8;
+        d.value = d.flux * 1e+8;// parseFloat(aux.toFixed(3));       
+      }else{
+        // energy 0.1-0.8nm
+        d.tag = dateParse(d.time_tag);
+        // aux = d.flux * 1e+6;
+        d.fluss = d.flux * 1e+8;//parseFloat(aux.toFixed(3));
+      }
     }
    });
 
