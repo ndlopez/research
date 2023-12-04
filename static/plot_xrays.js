@@ -8,7 +8,7 @@ Solar flare intensities cover a large range and are classified in terms of peak 
 ref scales https://www.d3indepth.com/scales/
 https://observablehq.com/@d3/line-chart/2?intent=fork*/
 
-const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-3-day.json";
+const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-1-day.json";//3-day
 const xclass = [{"class":"A","value":1e0},{"class":"B","value":1e1},{"class":"C","value":1e2},{"class":"M","value":1e3},{"class":"X","value":1e4}]; 
 const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
@@ -128,8 +128,10 @@ d3.json(xrays_url,
 
    svg_plot.append("g")
      .attr("class","date_axis")
+     //.selectAll(".tick line")
      .attr("transform", "translate(0," + h_plot + ")")
-     .call(d3.axisBottom(x_scale));
+     //.attr("stroke-dasharray","2,2")
+     .call(d3.axisBottom(x_scale));//.ticks(d3.timeMonth));
    
    svgLeft.append("g")
      .attr("class","xray_flux")

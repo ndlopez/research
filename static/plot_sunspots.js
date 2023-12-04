@@ -3,7 +3,7 @@ const spots_url = "https://raw.githubusercontent.com/ndlopez/scrapped/main/data/
 
 const containDiv = document.getElementById("sunspots");
 const spotTitle = document.createElement("p");
-spotTitle.innerHTML = 'International sunspot number: daily observations since 2008-01-01 ~ 2023-09-30 (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
+spotTitle.innerHTML = 'International sunspot number: daily observations since 2008-01-01 ~ 2023-11-30 (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
 containDiv.appendChild(spotTitle);
 const centerDiv = document.createElement("div");
 centerDiv.setAttribute("class","one-column float-left");
