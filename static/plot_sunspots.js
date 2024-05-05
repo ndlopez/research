@@ -2,8 +2,10 @@
 const spots_url = "https://raw.githubusercontent.com/ndlopez/scrapped/main/data/sunspot_number.csv";
 
 const containDiv = document.getElementById("sunspots");
+let tail_spot;
+(async () => {tail_spot = await got_tail();})(); 
 const spotTitle = document.createElement("p");
-spotTitle.innerHTML = 'International sunspot number: daily observations since 2008-01-01 ~ 2023-11-30 (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>';
+spotTitle.innerHTML = `International sunspot number: daily observations since 2008-01-01 ~ ${tail_spot} (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>`;
 containDiv.appendChild(spotTitle);
 const centerDiv = document.createElement("div");
 centerDiv.setAttribute("class","one-column float-left");
@@ -38,9 +40,9 @@ const svg = d3.select("#mainPlot").append("svg")
 const dateParser = d3.timeParse("%Y-%m-%d");
 const x = d3.scaleTime().range([ 0, width ]);
 const y = d3.scaleLinear().range([ height, 0 ]);
-
+let lastDate=[];
 d3.csv(spots_url,function(error,data){
-  // console.log(data);
+  // console.log(data[data.length -1]);
   if(error)throw error;
   data.forEach((d)=>{
     d.date = dateParser(d.date);
@@ -77,6 +79,7 @@ d3.csv(spots_url,function(error,data){
   .attr("stroke","#ffeea6")
   .attr("stroke-dasharray","5,5");*/
 });
+//console.log("datee",lastDate[lastDate.length -1]);
 
 function run_avg(data,steps){
   // data = [date,value]
@@ -87,4 +90,11 @@ function run_avg(data,steps){
   }
   avg_value.push(sum);
   return {date_arr,avg_value};
+}
+
+async function got_tail(){
+  const response = await fetch("https://raw.githubusercontent.com/ndlopez/scrapped/main/data/sunspot_last_up.txt");
+    const data = await response.text();
+    console.log(data);
+    return data;
 }
