@@ -101,5 +101,5 @@ async function got_tail(){
   const response = await fetch("https://raw.githubusercontent.com/ndlopez/scrapped/main/data/sunspot_last_up.txt");
     const data = await response.text();
     console.log(data);
-    return data;
+    return data[0];
 }
