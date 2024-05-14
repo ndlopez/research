@@ -7,7 +7,7 @@ const spotTitle = document.createElement("p");
 let tail_spot;
 (async () => {
   tail_spot = await got_tail();
-  spotTitle.innerHTML = `International sunspot number: daily observations since 2008-01-01 ~ ${tail_spot} (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>`;
+  spotTitle.innerHTML = `International sunspot number: daily observations since 2008-01-01 ~ ${tail_spot[0]} (Solar cycles 24 and 25). Data are courtesy of <a target="_blank" href="https://sidc.be/silso/">SILSO data/image, Royal Observatory of Belgium, Brussels</a>`;
 })(); 
 
 
@@ -99,7 +99,7 @@ function run_avg(data,steps){
 
 async function got_tail(){
   const response = await fetch("https://raw.githubusercontent.com/ndlopez/scrapped/main/data/sunspot_last_up.txt");
-    const data = await response.text();
-    console.log(data);
-    return data[0];
+  const data = await response.text();
+  console.log(data);
+  return data.split(",");
 }

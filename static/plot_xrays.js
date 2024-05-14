@@ -12,7 +12,7 @@ const xrays_url = "https://services.swpc.noaa.gov/json/goes/secondary/xrays-1-da
 const xclass = [{"class":"A","value":1e0},{"class":"B","value":1e1},{"class":"C","value":1e2},{"class":"M","value":1e3},{"class":"X","value":1e4}]; 
 const container = document.getElementById("xrays-long");
 const xraysTitle = document.createElement("p");
-xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA.</a> All times are in UTC unless indicated.';
+xraysTitle.innerHTML = 'The GOES X-ray plots shown here are used to track solar activity and solar flares. Data are courtesy of <a target="_blank" href="https://swpc.noaa.gov">SWPC, NOAA.</a> All times are in UTC. X-ray flux units are: 1e-8 W/m^2';
 container.appendChild(xraysTitle);
 const leftDiv = document.createElement("div");
 leftDiv.setAttribute("id","leftAxis");
@@ -53,7 +53,8 @@ const svgRight = d3.select("#rightAxis")
     .attr("transform","translate(" + 30 + "," + margen.top + ")");
 const class_data = ['','A','B','C','M','X',''];//xclass,(d) => d.class
 // if yMin=0.5 const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,(h_plot-20),(h_plot-120),(h_plot-190),(h_plot-270),(h_plot-350),0]);//h_plot,0
-const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,337.312,264.125,190.94,117.75,44.563,0]);//h_plot,0
+// const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,337.312,264.125,190.94,117.75,44.563,0]);//h_plot,0
+const yClass = d3.scaleOrdinal().domain(class_data).range([h_plot,342.166,273.833,205.5,137.166,68.833,0.5]);//h_plot,0
 
 svgRight.append("g").call(d3.axisLeft(yClass));
 const svg_plot = d3.select("#xrays_main")
@@ -92,7 +93,7 @@ d3.json(xrays_url,
    });
 
    x_scale.domain(d3.extent(data,(d) => d.date));
-   y_scale.domain([0.1,4e4]);//[0.5,4e4]d3.max(data,(d) => d.value)
+   y_scale.domain([0.1,1e5]);//[0.5,4e4]d3.max(data,(d) => d.value)
    
    // Plot line
    /*svg_plot.append("path")
