@@ -1,3 +1,6 @@
 .date_axis text,.xray_flux text{
     fill:#ffeea6; 
 }
+li a{
+    color: var(--light-sky);
+}

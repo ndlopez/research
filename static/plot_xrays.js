@@ -127,14 +127,17 @@ d3.json(xrays_url,
      .attr("height","2")
      .style("fill","#cc274c");
 
-   svg_plot.append("g")
-     .attr("class","date_axis")
-     //.selectAll(".tick line")
-     .attr("transform", "translate(0," + h_plot + ")")
-     //.attr("stroke-dasharray","2,2")
-     .call(d3.axisBottom(x_scale));//.ticks(d3.timeMonth));
-   
-   svgLeft.append("g")
-     .attr("class","xray_flux")
-     .call(d3.axisLeft(y_scale));
+  svg_plot.append("g")
+    .attr("class","date_axis")
+    //.selectAll(".tick line")
+    .attr("transform", "translate(0," + h_plot + ")")
+    //.attr("stroke-dasharray","2,2")
+    .call(d3.axisBottom(x_scale));//.ticks(d3.timeMonth));
+
+  svgLeft.append("g")
+    .attr("class","xray_flux")
+    .call(d3.axisLeft(y_scale));
+    /*.call(g=>g.selectAll(".tick line").clone()
+    .attr("x2", w_plot + margen.left + margen.right)
+    .attr("stroke-opacity",0.1));*/
 });
