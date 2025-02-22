@@ -13,14 +13,20 @@
       <!--script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script-->
   </head>
   <body>
+    <div class="sticky row no-padding">
+      <div class="half align-left float-left"><p>Next 
+        <a href="https://en.wikipedia.org/wiki/Solar_zenith_angle">solar zenith</a> @ 
+        <a href="https://www.openstreetmap.org/note/3360018#map=12/-16.4236/-68.0565&layers=N">16.42S 68.05W</a></p></div>
+      <div class="counter float-left"><h3 id="zenith"></h3>
+        <p class="top-text" style="text-align: right;">DAYS&ensp;HRS&ensp;MINS&ensp;SEC</p>
+      </div>
+    </div>
     <nav class="top-nav">
       <div><h2>Research</h2></div>
       <input id="menu-toggle" type="checkbox"/><label class="menu-button-container" for="menu-toggle">
         <div class="menu-button"></div>
       </label>
       <ul class="menu">
-        <!--li><a href="fmlapaz.html">LaPaz.fm</a></li>
-        <li class="no_desktop">Other locations</li-->
         <li><a href="/">Home</a></li>
         <li><a href="neo.html">Near Earth Objects</a></li>
         <li><a href="/pages/projects.html">Projects</a></li>
@@ -28,9 +34,8 @@
         <li class="no-desktop"><a href="/weather">Weather</a></li>
         <li class="no-desktop"><a href="/web_player">Music</a></li>
         <li class="no-desktop"><a href="/tools/todo.html">Tools / ToDo</a></li>
-        <!--li class="no-desktop"><a href="/tools/calendar.html">Tools / Calendar</a></li-->
         <li class="no-desktop"><a href="/tools/passGen.html">Tools / Lazy Pass</a></li>
-        <li><a href="/pages/about.html">About</a></li>
+        <li><a href="/about.html">About</a></li>
       </ul>
     </nav>
     
