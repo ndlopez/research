@@ -1,3 +1,18 @@
+.counter{
+    width: 60%;
+    padding: 0px 10px 0px 0px;
+    border: 0px;
+}
+.top-text{
+    font-size: small;
+    margin-top: -18px;
+}
+#zenith{
+    text-align: right;
+    font-size: large;
+    font-weight:300;
+    padding: 0px;
+}
 .date_axis text,.xray_flux text{
     fill:#ffeea6; 
 }
