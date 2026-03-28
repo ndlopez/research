@@ -3,7 +3,7 @@ const timeNow = new Date();
 //const day = timeNow.getDate(); //date today
 const monty = timeNow.getMonth() + 1; //starts from 0:Jan
 
-const myDate = `2023-${monty.toString().padStart(2, '0')}-${timeNow.getDate()}`;
+const myDate = `${timeNow.getFullYear()}-${monty.toString().padStart(2, '0')}-${timeNow.getDate()}`;
 //console.log(day, monty,myDate);
 
 const url = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${myDate}&end_date=${myDate}&api_key=${apiKey}`;
